@@ -39,9 +39,9 @@ export function hasRepeatedSegment(
         const b = route[i + 1];
 
         const key =
-            [a, b]
-                .sort((x, y) => x - y)
-                .join('-');
+            a < b
+                ? `${a}-${b}`
+                : `${b}-${a}`;
 
         if (
             usedSegments.has(key)
@@ -56,33 +56,54 @@ export function hasRepeatedSegment(
     return false;
 }
 
-function getSegmentLine(
-    stationA,
-    stationB,
+function buildSegmentLineMap(
     segments
 ) {
 
-    const segment =
-        segments.find(segment =>
+    const map = {};
 
-            (
-                segment.stationA === stationA &&
-                segment.stationB === stationB
-            )
+    for (const segment of segments) {
 
-            ||
+        const key =
+            [
+                segment.stationA,
+                segment.stationB
+            ]
+                .sort((a, b) => a - b)
+                .join('-');
 
-            (
-                segment.stationA === stationB &&
-                segment.stationB === stationA
-            )
+        map[key] =
+            segment.lineId;
 
+    }
+
+    return map;
+}
+
+function buildStationLineMap(
+    stationLines
+) {
+
+    const map = {};
+
+    for (
+        const stationLine
+        of stationLines
+    ) {
+
+        const stationId =
+            stationLine.stationId;
+
+        if (!map[stationId])
+            map[stationId] = [];
+
+        map[stationId].push(
+            stationLine.lineId
         );
 
-    return segment
-        ? segment.lineId
-        : null;
+    }
 
+    return map;
 }
 
 function validLineChanges(
@@ -91,38 +112,55 @@ function validLineChanges(
     stationLines
 ) {
 
+    const segmentLineMap =
+        buildSegmentLineMap(
+            segments
+        );
+
+    const stationLineMap =
+        buildStationLineMap(
+            stationLines
+        );
+
     for (
         let i = 0;
         i < route.length - 2;
         i++
     ) {
 
-        const currentStation =
+        const stationA =
+            route[i];
+
+        const stationB =
             route[i + 1];
 
+        const stationC =
+            route[i + 2];
+
+        const key1 =
+            [stationA, stationB]
+                .sort((a, b) => a - b)
+                .join('-');
+
+        const key2 =
+            [stationB, stationC]
+                .sort((a, b) => a - b)
+                .join('-');
+
         const line1 =
-            getSegmentLine(
-                route[i],
-                route[i + 1],
-                segments
-            );
+            segmentLineMap[key1];
 
         const line2 =
-            getSegmentLine(
-                route[i + 1],
-                route[i + 2],
-                segments
-            );
+            segmentLineMap[key2];
 
         if (
             line1 !== line2
         ) {
 
             const linesAtStation =
-                stationLines.filter(
-                    stationLine =>
-                        stationLine.stationId === currentStation
-                );
+                stationLineMap[
+                    stationB
+                ] || [];
 
             if (
                 linesAtStation.length < 2
@@ -196,7 +234,11 @@ export function validateRoute(
     }
 
     if (
-    hasRepeatedSegment(route)
+        !validLineChanges(
+            route,
+            segments,
+            stationLines
+        )
     ) {
         return false;
     }
