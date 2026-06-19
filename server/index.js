@@ -1,9 +1,31 @@
-// imports
 import express from "express";
+import session from "express-session";
+import dotenv from "dotenv";
 
-// init express
+import passport from "./passport/passport-config.js";
+
+dotenv.config();
+
 const app = new express();
-const port = 3001;
+app.use(express.json());
+
+const port = process.env.PORT;
+const sessionSecret = process.env.SESSION_SECRET;
+
+app.use(
+    session({
+        secret: sessionSecret,
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            httpOnly: true,
+            maxAge: 1000 * 60 * 60
+        }
+    })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // activate the server
 app.listen(port, () => {
