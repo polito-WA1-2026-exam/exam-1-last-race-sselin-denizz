@@ -134,3 +134,86 @@ INSERT INTO segments VALUES (14, 14, 15, 4);
 
 -- Startup District ↔ Lingotto Hub
 INSERT INTO segments VALUES (15, 15, 2, 4);
+
+-- =====================================================
+-- EVENTS
+-- =====================================================
+-- events(id, description, effect)
+
+INSERT INTO events VALUES (
+    1,
+    'A nonno stopped you to tell his life story',
+    -2
+);
+
+INSERT INTO events VALUES (
+    2,
+    'Gave spare change to a street musician',
+    -1
+);
+
+INSERT INTO events VALUES (
+    3,
+    'The library printer worked on the first attempt',
+    4
+);
+
+INSERT INTO events VALUES (
+    4,
+    'You forgot where you parked your bike',
+    -2
+);
+
+INSERT INTO events VALUES (
+    5,
+    'The coffee machine ate your coins',
+    -2
+);
+
+INSERT INTO events VALUES (
+    6,
+    'A friend saved you a seat in the library',
+    2
+);
+
+INSERT INTO events VALUES (
+    7,
+    'You arrived late to your oral exam',
+    -3
+);
+
+INSERT INTO events VALUES (
+    8,
+    'Free Redbull at a startup meetup',
+    4
+);
+
+INSERT INTO events VALUES (
+    9,
+    'You realized the assignment is due tonight',
+    -4
+);
+
+INSERT INTO events VALUES (
+    10,
+    'Found an empty study room during exam week',
+    3
+);
+
+INSERT INTO events VALUES (
+    11,
+    'The teammate who disappeared for three weeks finally replied',
+    3
+);
+
+INSERT INTO events VALUES (
+    12,
+    'A pigeon stole part of your tramezzino',
+    -1
+);
+
+INSERT INTO events VALUES (
+    13,
+    'Nothing unusual happened during the trip',
+    0
+);
