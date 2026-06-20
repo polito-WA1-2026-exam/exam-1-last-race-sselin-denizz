@@ -67,24 +67,24 @@ CREATE TABLE games (
 
     id INTEGER PRIMARY KEY AUTOINCREMENT,
 
-    user_id INTEGER NOT NULL,
+    userId INTEGER NOT NULL,
 
-    start_station_id INTEGER NOT NULL,
+    startStationId INTEGER NOT NULL,
 
-    destination_station_id INTEGER NOT NULL,
+    destinationStationId INTEGER NOT NULL,
 
-    submitted_route TEXT NOT NULL,
+    submittedRoute TEXT NOT NULL,
 
     score INTEGER NOT NULL,
 
-    played_at TEXT NOT NULL,
+    playedAt TEXT NOT NULL,
 
-    FOREIGN KEY(user_id)
+    FOREIGN KEY(userId)
         REFERENCES users(id),
 
-    FOREIGN KEY(start_station_id)
+    FOREIGN KEY(startStationId)
         REFERENCES stations(id),
 
-    FOREIGN KEY(destination_station_id)
+    FOREIGN KEY(destinationStationId)
         REFERENCES stations(id)
 );

@@ -8,12 +8,12 @@ export function createGame(game) {
 
         const sql = `
             INSERT INTO games (
-                user_id,
-                start_station_id,
-                destination_station_id,
-                submitted_route,
+                userId,
+                startStationId,
+                destinationStationId,
+                submittedRoute,
                 score,
-                played_at
+                playedAt
             )
             VALUES (?, ?, ?, ?, ?, ?)
         `;

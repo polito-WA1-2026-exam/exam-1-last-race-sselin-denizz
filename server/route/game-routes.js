@@ -120,8 +120,8 @@ router.post(
         try {
 
             const {
-                startStation,
-                destinationStation,
+                startStationId,
+                destinationStationId,
                 route
             } = req.body;
 
@@ -134,8 +134,8 @@ router.post(
             const valid =
                 validateRoute(
                     route,
-                    startStation,
-                    destinationStation,
+                    startStationId,
+                    destinationStationId,
                     segments,
                     stationLines
                 );
