@@ -6,6 +6,8 @@ import {
     Route
 } from 'react-router-dom';
 
+import { useState } from 'react';
+
 import InstructionsPage
     from './pages/InstructionsPage';
 
@@ -26,6 +28,8 @@ import ResultPage
 
 function App() {
 
+    const [user, setUser] = useState(null);
+
     return (
 
         <BrowserRouter>
@@ -42,7 +46,9 @@ function App() {
                 <Route
                     path="/login"
                     element={
-                        <LoginPage />
+                        <LoginPage
+                            setUser={setUser}
+                        />
                     }
                 />
 

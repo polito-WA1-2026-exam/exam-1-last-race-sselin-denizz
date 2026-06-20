@@ -1,0 +1,149 @@
+.login-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background-image:
+        url('../../assets/turin.jpg');
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+}
+
+.login-card {
+
+    width: 400px;
+
+    padding: 2rem;
+
+    border-radius: 24px;
+
+    background:
+        rgba(255, 245, 255, 0.25);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    border:
+        1px solid rgba(255,255,255,0.3);
+
+    box-shadow:
+        0 8px 32px rgba(31,38,135,0.15);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1rem;
+}
+
+.login-card h1 {
+
+    color: #370858;
+
+    font-family:
+    'Bitcount Grid Double',
+    sans-serif;
+
+    font-weight: 530;
+
+    text-align: center;
+}
+
+.login-card p {
+
+    font-family:
+    'Bitcount Grid Double',
+    sans-serif;
+
+    text-align: center;
+
+    color: #333437;
+
+}
+
+.login-card input {
+
+    font-family:
+    'Bitcount Grid Double',
+    sans-serif;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    border: 1px solid #e5e7eb;
+
+}
+
+.login-card button {
+
+    font-family:
+    'Bitcount Grid Double',
+    sans-serif;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #a78bfa;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+}
+
+.login-card button:hover {
+
+    transform: translateY(-2px);
+
+}
+
+.floating-icons {
+
+    text-align: center;
+
+    font-size: 2rem;
+
+    animation:
+        float 3s
+        ease-in-out
+        infinite;
+
+}
+
+@keyframes float {
+
+    0% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+    }
+
+    100% {
+        transform:
+            translateY(0);
+    }
+
+}
