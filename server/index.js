@@ -7,9 +7,15 @@ import authRoutes from './route/auth-routes.js';
 import networkRoutes from './route/network-routes.js';
 import gameRoutes from './route/game-routes.js';
 
+import corsMiddleware
+    from './middleware/cors-middleware.js';
+
 dotenv.config();
 
 const app = new express();
+
+app.use(corsMiddleware);
+
 app.use(express.json());
 
 const port = process.env.PORT;
