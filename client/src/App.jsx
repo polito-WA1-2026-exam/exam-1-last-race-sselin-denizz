@@ -37,13 +37,6 @@ function App() {
             <Routes>
 
                 <Route
-                    path="/"
-                    element={
-                        <InstructionsPage />
-                    }
-                />
-
-                <Route
                     path="/login"
                     element={
                         <LoginPage
@@ -53,9 +46,9 @@ function App() {
                 />
 
                 <Route
-                    path="/ranking"
+                    path="/instructions"
                     element={
-                        <RankingPage />
+                        <InstructionsPage />
                     }
                 />
 
@@ -63,6 +56,13 @@ function App() {
                     path="/setup"
                     element={
                         <SetupPage />
+                    }
+                />
+
+                <Route
+                    path="/ranking"
+                    element={
+                        <RankingPage />
                     }
                 />
 

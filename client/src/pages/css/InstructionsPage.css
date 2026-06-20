@@ -1,0 +1,283 @@
+.instructions-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 2rem;
+
+    background-image:
+        url('../../assets/polito-main-campus.jpg');
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+}
+
+.instructions-card {
+
+    width: 750px;
+
+    max-width: 95%;
+
+    padding: 2.5rem;
+
+    border-radius: 28px;
+
+    background:
+        rgba(255, 245, 255, 0.25);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.35);
+
+    box-shadow:
+        0 8px 32px rgba(31, 38, 135, 0.15);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 1.5rem;
+
+    text-align: center;
+
+}
+
+.floating-icons {
+
+    font-size: 2.2rem;
+
+    animation:
+        float 3s
+        ease-in-out
+        infinite;
+
+}
+
+.instructions-card h1 {
+
+    margin: 0;
+
+    color: #370858;
+
+    font-size: 4rem;
+    
+    font-family:
+    'Bitcount Grid Double',
+    sans-serif;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 10px rgba(124, 58, 237, 0.25);
+
+}
+
+.subtitle {
+
+    margin-top: -0.5rem;
+
+    color: #3b3b3b;
+
+    font-size: 1.1rem;
+
+    opacity: 0.85;
+
+}
+
+.instructions-content {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1rem;
+
+    text-align: left;
+
+    color: #2f2f2f;
+
+    line-height: 1.8;
+
+    font-size: 1.05rem;
+
+}
+
+.instructions-content p {
+
+    margin: 0;
+
+}
+
+.instructions-content strong {
+
+    color: #5b21b6;
+
+}
+
+.rule-card {
+
+    background:
+        rgba(255, 255, 255, 0.18);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 18px;
+
+    padding: 1rem;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+.rule-card:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(124, 58, 237, 0.15);
+
+}
+
+.objective-badge {
+
+    background:
+        rgba(124, 58, 237, 0.15);
+
+    border:
+        1px solid rgba(124, 58, 237, 0.25);
+
+    color: #4c1d95;
+
+    border-radius: 999px;
+
+    padding: 12px 24px;
+
+    font-size: 0.95rem;
+
+    font-weight: 600;
+
+}
+
+.instructions-card button {
+
+    width: 100%;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a78bfa,
+            #8b5cf6
+        );
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 1.1rem;
+
+    font-weight: 700;
+
+    font-family:
+    'Bitcount Grid Double',
+    sans-serif;
+
+    letter-spacing: 2px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+.instructions-card button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(139, 92, 246, 0.35);
+
+}
+
+.instructions-card button:active {
+
+    transform:
+        translateY(0);
+
+}
+
+@keyframes float {
+
+    0% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-10px);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .instructions-card {
+
+        padding: 2rem;
+
+    }
+
+    .instructions-card h1 {
+
+        font-size: 2.8rem;
+
+    }
+
+    .instructions-content {
+
+        font-size: 1rem;
+
+    }
+
+}
