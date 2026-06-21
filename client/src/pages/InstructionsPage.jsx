@@ -60,6 +60,7 @@ function InstructionsPage() {
                             Move from station to station
                             and find a valid route to your
                             destination.
+                            (Dont forget to not use the same two stations twice in a row! Otherwise, 0 points will be awarded for that trip.)
                         </p>
 
                     </div>
