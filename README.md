@@ -179,9 +179,9 @@ npm run dev
 
 | Email                                     | Password |
 | ----------------------------------------- | -------- |
-| [mario@polito.it](mailto:mario@polito.it) | password |
-| [anna@polito.it](mailto:anna@polito.it)   | password |
-| [luca@polito.it](mailto:luca@polito.it)   | password |
+| [fulvio.corno@polito.it] | iLoveWebApp2 |
+| [francesca.russo@polito.it]   | iLoveWebApp3|
+| [selin.deniz@polito.it]  | iLoveWebApp1 |
 
 The users are automatically inserted by the database initialization script.
 
@@ -280,8 +280,37 @@ The frontend follows a component-based architecture:
 
 ---
 
+## Transportation Network
+
+Last Race is built around a fictional student-themed transportation network inspired by life in Turin.
+
+The network consists of:
+
+* 4 transportation lines
+* 15 stations
+* Multiple interchange stations
+* 15 station-to-station segments
+
+### Example Lines
+
+* Caffeine Line
+* Panic Line
+* Aperitivo Line
+* Startup Line
+
+### Example Stations
+
+* Main Campus
+* Central Library
+* Exam Center
+* Porta Nuova
+* Innovation Hub
+* Startup District
+
+The transportation network is modeled as a graph and is used to generate missions, validate routes, and compute shortest paths.
+
+---
+
 ## Author
 
 Selin Deniz
-
-Politecnico di Torino

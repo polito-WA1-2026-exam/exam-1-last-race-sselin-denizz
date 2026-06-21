@@ -7,17 +7,17 @@ const users = [
     {
         name: 'Selin Deniz',
         email: 'selin.deniz@polito.it',
-        password: 'password'
+        password: 'iLoveWebApp1'
     },
     {
-        name: 'Adelina Popescu',
-        email: 'adelina.popescu@polito.it',
-        password: 'password'
+        name: 'Fulvio Corno',
+        email: 'fulvio.corno@polito.it',
+        password: 'iLoveWebApp2'
     },
     {
-        name: 'Xavier Dupont',
-        email: 'xavier.dupont@polito.it',
-        password: 'password'
+        name: 'Francesca Russo',
+        email: 'francesca.russo@polito.it',
+        password: 'iLoveWebApp3'
     }
 ];
 
