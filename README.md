@@ -1,48 +1,287 @@
-# Exam #N: "Exam Title"
-## Student: s123456 LASTNAME FIRSTNAME 
+# Last Race
 
-## React Client Application Routes
+Web Applications I - Exam Project
 
-- Route `/`: page content and purpose
-- Route `/something/:param`: page content and purpose, param specification
-- ...
+## Overview
 
-## API Server
+Last Race is a single-page web application developed with React, Node.js, Express, Passport.js, and SQLite.
 
-- POST `/api/something`
-  - request parameters and request body content
-  - response body content
-- GET `/api/something`
-  - request parameters
-  - response body content
-- POST `/api/something`
-  - request parameters and request body content
-  - response body content
-- ...
+The game simulates the journey of a student in Turin who must reach a destination station before an exam while facing random events that affect the final score.
 
-## Database Tables
+---
 
-- Table `users` - contains xx yy zz
-- Table `something` - contains ww qq ss
-- ...
+## Technologies
 
-## Main React Components
+### Frontend
 
-- `ListOfSomething` (in `List.js`): component purpose and main functionality
-- `GreatButton` (in `GreatButton.js`): component purpose and main functionality
-- ...
+* React 19
+* React Router
+* Vite
+* CSS
 
-(only _main_ components, minor ones may be skipped)
+### Backend
 
-## Screenshot
+* Node.js
+* Express
+* Passport.js
+* express-session
 
-![Screenshot](./img/screenshot.jpg)
+### Database
 
-## Users Credentials
+* SQLite
 
-- username, password (plus any other requested info)
-- username, password (plus any other requested info)
+---
 
-## Use of AI Tools
-Briefly describe whether you used any AI tools (e.g., ChatGPT, GitHub Copilot, Claude) while working on this project, for which purposes (e.g., clarifying concepts, debugging, generating code), and how you verified or adapted their output.
-If you did not use any AI tools, simply state so.
+## Main Features
+
+### Authentication
+
+* Session-based login
+* Passport.js authentication
+* Protected APIs
+
+### Mission Generation
+
+* Random departure station
+* Random destination station
+* Minimum distance constraint
+
+### Route Planning
+
+* Interactive station selection
+* Route validation
+* Undo functionality
+
+### Journey Simulation
+
+* Event-based score calculation
+* Route execution
+* Final score generation
+
+### Ranking
+
+* Global leaderboard
+* Best score per player
+
+---
+
+## Screenshots
+
+### Login Page
+
+![Login](docs/login.png)
+
+### Instructions Page
+
+![Instructions](docs/instructions.png)
+
+### Setup Page
+
+![Setup](docs/setup.png)
+![Setup](docs/setup-alternative.png)
+
+### Planning Page
+
+![Planning](docs/planning.png)
+
+### Result Page
+
+![Result](docs/result.png)
+
+### Ranking Page
+
+![Ranking](docs/ranking.png)
+
+---
+
+## Environment Configuration
+
+### Server (.env)
+
+```env
+PORT=3001
+CLIENT_URL=http://localhost:5173
+SESSION_SECRET=super-secret-key
+```
+
+### Client (.env)
+
+```env
+VITE_API_URL=http://localhost:3001/api
+```
+
+---
+
+## Default Ports
+
+| Component      | Port |
+| -------------- | ---- |
+| React Client   | 5173 |
+| Express Server | 3001 |
+
+The ports can be modified through the environment variables.
+
+---
+
+## Database Management
+
+### Create Database
+
+```bash
+cd server
+node scripts/create-db.js
+```
+
+### Populate Database
+
+```bash
+node scripts/seed-db.js
+```
+
+### Reset Database
+
+Remove the existing SQLite database file:
+
+```bash
+rm db/database.sqlite
+```
+
+Create a fresh database:
+
+```bash
+node scripts/create-db.js
+node scripts/seed-db.js
+```
+
+---
+
+## Running the Application
+
+### Start Server
+
+```bash
+cd server
+npm install
+nodemon index.js
+```
+
+### Start Client
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+---
+
+## Test Users
+
+| Email                                     | Password |
+| ----------------------------------------- | -------- |
+| [mario@polito.it](mailto:mario@polito.it) | password |
+| [anna@polito.it](mailto:anna@polito.it)   | password |
+| [luca@polito.it](mailto:luca@polito.it)   | password |
+
+The users are automatically inserted by the database initialization script.
+
+---
+
+## HTTP APIs
+
+### Authentication
+
+* POST /api/sessions
+* GET /api/sessions/current
+* DELETE /api/sessions/current
+
+### Network
+
+* GET /api/network
+
+### Games
+
+* POST /api/games/new
+* POST /api/games/submit
+* GET /api/games/ranking
+
+---
+
+## Project Structure
+
+```text
+client/
+├── src/
+│   ├── api/
+│   ├── assets/
+│   ├── pages/
+│   └── ...
+│
+server/
+├── dao/
+├── db/
+├── middleware/
+├── passport/
+├── route/
+├── scripts/
+├── utils/
+└── ...
+```
+
+---
+
+## Database Design
+
+### users
+
+Stores registered users and authentication information.
+
+### stations
+
+Stores all transportation stations.
+
+### lines
+
+Stores transportation lines.
+
+### segments
+
+Stores station-to-station connections.
+
+### events
+
+Stores random journey events and score effects.
+
+### games
+
+Stores submitted routes and achieved scores.
+
+---
+
+## Design Decisions
+
+### Backend
+
+The backend follows a layered architecture:
+
+* Routes manage HTTP requests and responses.
+* DAOs manage database access.
+* Utilities encapsulate graph algorithms, route validation, and game execution logic.
+* Passport.js handles authentication.
+
+### Frontend
+
+The frontend follows a component-based architecture:
+
+* React Router manages navigation.
+* Pages are organized by responsibility.
+* API calls are centralized in a dedicated API module.
+* State is managed through React hooks.
+
+---
+
+## Author
+
+Selin Deniz
+
+Politecnico di Torino
