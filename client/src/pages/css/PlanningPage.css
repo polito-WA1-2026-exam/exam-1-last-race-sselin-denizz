@@ -1,0 +1,314 @@
+.planning-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 2rem;
+
+    background-image:
+        url('../../assets/porta-nuova.jpg');
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+}
+
+.planning-card {
+
+    width: 950px;
+
+    max-width: 95%;
+
+    padding: 2.5rem;
+
+    border-radius: 28px;
+
+    background:
+        rgba(255, 245, 255, 0.22);
+
+    backdrop-filter:
+        blur(7px);
+
+    -webkit-backdrop-filter:
+        blur(4px);
+
+    border:
+        1px solid rgba(255,255,255,0.25);
+
+    box-shadow:
+        0 8px 32px
+        rgba(31,38,135,0.15);
+
+    font-family:
+        'Bitcount Grid Double',
+        sans-serif;
+
+}
+
+.planning-card h1 {
+    
+    font-family:
+    'Bitcount Grid Double',
+    sans-serif;
+
+    text-align: center;
+
+    color: #2d0052;
+
+    font-size: 3.5rem;
+
+    margin-bottom: 2rem;
+
+}
+
+.planning-card h2 {
+
+    font-family:
+    'Bitcount Grid Double',
+    sans-serif;
+
+    text-align: center;
+
+    color: #4c1d95;
+
+    margin-bottom: 1rem;
+
+}
+
+.mission-info {
+
+    text-align: center;
+
+    margin-bottom: 2rem;
+
+    padding: 1.5rem;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+}
+
+.mission-info h3 {
+
+    color: #4c1d95;
+
+    margin-bottom: .5rem;
+
+}
+
+.mission-info p {
+
+    color: #2f2f2f;
+
+    font-size: 1rem;
+
+}
+
+.route-box {
+
+    padding: 1.5rem;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    margin-bottom: 2rem;
+
+}
+
+.route-display {
+
+    min-height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,0.10);
+
+    border-radius: 14px;
+
+    padding: 1rem;
+
+    color: #370858;
+
+    font-size: 1.2rem;
+
+    margin-bottom: 1rem;
+
+}
+
+.stations-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px, 1fr)
+        );
+
+    gap: 14px;
+
+    margin-top: 1rem;
+
+}
+
+.station-button {
+
+    border: none;
+
+    border-radius: 18px;
+
+    padding: 16px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    color: #3c1361;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,220,255,0.75),
+            rgba(221,214,254,0.75)
+        );
+
+    transition:
+        all .2s ease;
+    
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+
+}
+
+.station-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(167,139,250,0.30);
+
+}
+
+.actions {
+
+    display: flex;
+
+    gap: 1rem;
+
+    margin-top: 2rem;
+
+}
+
+.undo-button {
+
+    flex: 1;
+
+    border: none;
+
+    border-radius: 16px;
+
+    padding: 16px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    color: #370858;
+
+    background:
+        rgba(255,255,255,0.25);
+
+    transition:
+        all .2s ease;
+
+}
+
+.undo-button:hover:not(:disabled) {
+
+    background:
+        rgba(255,255,255,0.40);
+
+    transform:
+        translateY(-2px);
+
+}
+
+.action-button {
+
+    flex: 2;
+
+    border: none;
+
+    border-radius: 16px;
+
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+
+    padding: 10px;
+
+    margin-top: 10px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f9a8d4,
+            #c084fc
+        );
+
+    transition:
+        all .2s ease;
+
+}
+
+.action-button:hover:not(:disabled) {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(192,132,252,0.35);
+
+}
+
+.action-button:disabled {
+
+    opacity: .5;
+
+    cursor: not-allowed;
+
+}
+
+.undo-button:disabled {
+
+    opacity: .5;
+
+    cursor: not-allowed;
+
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+}
