@@ -65,11 +65,17 @@ function PlanningPage({
     const [canUndo, setCanUndo] =
         useState(false);
 
+    const [submitted, setSubmitted] =
+        useState(false);
+
+    const [showMap, setShowMap] =
+        useState(true);
+
+    const [timeLeft, setTimeLeft] =
+        useState(80);
+
     const navigate =
         useNavigate();
-
-    const [submitted, setSubmitted] = 
-        useState(false);
 
     function addStation(
         stationId
@@ -94,7 +100,9 @@ function PlanningPage({
         if (
             !canUndo
         ) {
+
             return;
+
         }
 
         setRoute(
@@ -173,6 +181,84 @@ function PlanningPage({
 
     }, []);
 
+    useEffect(() => {
+
+        const previewTimer =
+            setTimeout(
+                () =>
+                    setShowMap(false),
+                10000
+            );
+
+        return () =>
+            clearTimeout(
+                previewTimer
+            );
+
+    }, []);
+
+    useEffect(() => {
+
+        if (
+            showMap
+        ) {
+
+            return;
+
+        }
+
+        const countdown =
+            setInterval(
+                () => {
+
+                    setTimeLeft(
+                        current =>
+                            current - 1
+                    );
+
+                },
+                1000
+            );
+
+        return () =>
+            clearInterval(
+                countdown
+            );
+
+    }, [showMap]);
+
+    useEffect(() => {
+
+        if (
+            timeLeft <= 0
+        ) {
+
+            navigate(
+                '/result',
+                {
+                    replace: true,
+
+                    state: {
+
+                        valid: false,
+
+                        finalScore: 0,
+
+                        journey: [
+                            {
+                                event:
+                                    'Time expired'
+                            }
+                        ]
+
+                    }
+                }
+            );
+
+        }
+
+    }, [timeLeft]);
+
     if (!game) {
 
         return (
@@ -189,6 +275,98 @@ function PlanningPage({
             <h1>
                 Loading network...
             </h1>
+        );
+
+    }
+
+    if (showMap) {
+
+        return (
+
+            <div className="planning-page">
+
+                <div className="planning-card">
+
+                    <h1>
+                        Memorize The Network
+                    </h1>
+
+                    <h2>
+                        10 Seconds
+                    </h2>
+
+                    <div
+                        className="network-preview"
+                    >
+
+                        <h3>
+                            Caffeine Line
+                        </h3>
+
+                        <p>
+                            Main Campus
+                            →
+                            Lingotto Hub
+                            →
+                            Central Library
+                            →
+                            Study District
+                            →
+                            Riverside Campus
+                        </p>
+
+                        <h3>
+                            Panic Line
+                        </h3>
+
+                        <p>
+                            Main Campus
+                            →
+                            Aula Magna
+                            →
+                            Exam Center
+                            →
+                            Student Services
+                            →
+                            Graduation Hall
+                        </p>
+
+                        <h3>
+                            Aperitivo Line
+                        </h3>
+
+                        <p>
+                            Riverside Campus
+                            →
+                            Porta Nuova
+                            →
+                            Castle Square
+                            →
+                            Valentino Park
+                            →
+                            Murazzi
+                        </p>
+
+                        <h3>
+                            Startup Line
+                        </h3>
+
+                        <p>
+                            Exam Center
+                            →
+                            Innovation Hub
+                            →
+                            Startup District
+                            →
+                            Lingotto Hub
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         );
 
     }
@@ -225,6 +403,16 @@ function PlanningPage({
                     Plan Your Journey
                 </h1>
 
+                <div
+                    className="timer-box"
+                >
+
+                    Time Left:
+                    {' '}
+                    {timeLeft}s
+
+                </div>
+
                 <div className="mission-info">
 
                     <div className="station-card">
@@ -246,7 +434,9 @@ function PlanningPage({
                         </h3>
 
                         <p>
-                            {game.destinationStation.name}
+                            {
+                                game.destinationStation.name
+                            }
                         </p>
 
                     </div>
@@ -334,7 +524,8 @@ function PlanningPage({
                     }
 
                     disabled={
-                        !destinationReached || submitted
+                        !destinationReached ||
+                        submitted
                     }
 
                 >
