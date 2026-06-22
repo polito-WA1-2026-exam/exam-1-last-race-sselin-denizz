@@ -312,6 +312,11 @@ The transportation network is modeled as a graph and is used to generate mission
 
 ---
 
+## AI Usage
+GPT is used for consultation
+
+---
+
 ## Author
 
 Selin Deniz
