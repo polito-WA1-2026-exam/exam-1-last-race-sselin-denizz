@@ -83,6 +83,7 @@ The game simulates the journey of a student in Turin who must reach a destinatio
 ### Planning Page
 
 ![Planning](docs/planning.png)
+![Planning](docs/playing.png)
 
 ### Result Page
 

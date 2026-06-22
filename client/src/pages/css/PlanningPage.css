@@ -53,7 +53,7 @@
 
 }
 
-.planning-card h1 {
+.planning-card h1{
     
     font-family:
     'Bitcount Grid Double',
@@ -104,6 +104,14 @@
 
     margin-bottom: .5rem;
 
+}
+
+h3 {
+    font-family:
+    'Bitcount Grid Double',
+    sans-serif;
+
+    color: #4c1d95;
 }
 
 .mission-info p {
